@@ -1,0 +1,28 @@
+@mixin y-flex($jc: space-between, $ai: stretch) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+$pc: 1025px;
+$tab1: 1024px;
+$tab2: 768px;
+$sp: 767px;
+
+$s: 767px;
+$m: 1024px;
+$l: 1025px;
+
+$breakpoint: (
+  s: 'screen and (max-width:#{$s})',
+  m: 'screen and (max-width:#{$m})',
+  l: 'screen and (min-width:#{$l})',
+  rvs: 'screen and (min-width:#{$s+1})',
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoint,$bp)} {
+    @content;
+  }
+}
