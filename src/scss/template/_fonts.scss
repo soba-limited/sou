@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../../assets/font/Roboto-Bold.ttf') format('ttf');
+    src: url('../../../assets/font/Roboto-Light.ttf') format('ttf');
+    src: url('../../../assets/font/Roboto-Medium.ttf') format('ttf');
+    src: url('../../../assets/font/Roboto-Regular.ttf') format('ttf');
+}
+
+/* font-family */
+$NotoSansJp: noto-sans-cjk-jp, sans-serif;
+$Roboto: 'Roboto', sans-serif;
+
+/*font-weight*/
+$black: 900;
+$bold: 700;
+$semibold: 600;
+$Demi: 600;
+$medium :500;
+$regular: 400;
+$light: 300;

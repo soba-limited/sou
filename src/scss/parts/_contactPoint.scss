@@ -1,0 +1,70 @@
+.contactPoint {
+    background: url(../../../assets/images/top/contactPoint__bk.webp) no-repeat center center / cover;
+    @include width(100%);
+    @include height(612px, 612px, initial);
+    @include pt(122px, 122px, 66px);
+    @include pb(initial, initial, 48px);
+
+    .wrap1080 {
+        h3 {
+            @include fs(40px, 40px, 24px);
+            font-weight: $bold;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                content: "";
+                @include width(24px);
+                @include height(2px);
+                background: #ffffff;
+                @include top(-40px, -40px, -25px);
+                left: 50%;
+                transform: translate(-50%);
+            }
+        }
+
+        span {
+            font-family: $Roboto;
+            @include fs(12px);
+            font-weight: $regular;
+            color: #ffffff;
+            text-align: center;
+            display: block;
+            @include mt(32px, 32px, 12px);
+        }
+
+        .tel {
+            @include width(444px, 444px, 275px);
+            @include height(auto);
+            @include mx(auto);
+            @include mt(48px, 48px, 32px);
+        }
+
+        p {
+            @include mt(12px, 12px, 16px);
+            text-align: center;
+            @include fs(15px, 15px, 14px);
+            font-weight: $medium;
+            color: #ffffff;
+        }
+
+        @include btn1(380px, 380px, 380px, 78px, 78px, 78px, '../../../assets/images/top/mai-icon-blue.svg', '../../../assets/images/common/arrow-icon.svg');
+
+        .btn1 {
+            @include mt(32px, 32px, 32px);
+            @include mx(auto);
+
+            &::before {
+                @include width(21px);
+                @include height(16px);
+            }
+
+            &::after {
+                @include width(30px);
+                @include height(30px);
+            }
+        }
+    }
+}

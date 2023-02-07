@@ -1,0 +1,302 @@
+//共通クラス
+.hover-opacity {
+    @include pc {
+        transition: all 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.wrap1080 {
+    max-width: calc(1080px + 16px * 2);
+    @include px(16px);
+    margin: 0 auto;
+    @include width(100%);
+}
+
+.wrap1440 {
+    max-width: calc(1440px);
+    margin: 0 auto;
+    @include width(100%);
+}
+
+.pc {
+
+    @include tab {
+        display: none;
+    }
+
+    @include sp {
+        display: none;
+    }
+}
+
+.pc-tab {
+    @include sp {
+        display: none;
+    }
+}
+
+.tab-sp {
+    display: none;
+
+    @include tab {
+        display: block;
+    }
+
+    @include sp {
+        display: block;
+    }
+}
+
+.sp {
+    display: none;
+
+    @include sp {
+        display: block;
+    }
+}
+
+//初期化
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+
+.headline {
+    @include mb(initial, initial, 32px);
+
+    h3 {
+        @include fs(40px, 40px, 32px);
+        font-weight: $medium;
+        position: relative;
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: -32px;
+            left: 0;
+            @include width(39px, 39px, 32px);
+            @include height(5px);
+            background: #0086CD;
+        }
+    }
+
+    span {
+        @include fs(12px, 12px, 10px);
+        font-weight: $regular;
+        font-family: $Roboto;
+        color: #0086CD;
+        @include mt(32px, 32px, 24px);
+    }
+}
+
+.bk_graph {
+    position: relative;
+    z-index: 1;
+
+    &::after {
+        z-index: -1;
+        position: absolute;
+        background: url(../../../assets/images/common/bk.webp) repeat;
+        height: 100%;
+        width: 100%;
+        content: "";
+        left: 0;
+        top: 0;
+    }
+}
+
+.element {
+    /* 最初は非表示 */
+    transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 1s, opacity 1s, visibility 1s;
+}
+
+/* フェードイン時に入るクラス */
+.is-fadein {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+@mixin viewAll {
+    .viewAll {
+        @include width(240px);
+        @include height(25px);
+        position: relative;
+
+        &:before {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url(../../../assets/images/common/viewAll-icon.svg) no-repeat center center / contain;
+            @include width(10px);
+            @include height(10px);
+            content: "";
+        }
+
+        a {
+            @include width(100%);
+            @include height(100%);
+            font-weight: $regular;
+            @include fs(12px);
+            font-family: $Roboto;
+            line-height: 10px;
+            @include pb(12px);
+            border-bottom: 1px solid #333333;
+        }
+    }
+}
+
+
+@mixin btn1($pcW, $tabW: $pcW, $spW: $pcW, $pcH, $tabH: $pcH, $spH: $pcH, $pathBefore, $pathAfter) {
+    .btn1 {
+        @include width($pcW, $tabW, $spW);
+        @include height($pcH, $tabH, $spH);
+        position: relative;
+        @include fs(14px);
+        font-weight: $bold;
+        background: #ffffff;
+
+        a {
+            @include width(100%);
+            @include height(100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0086CD;
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            @include left(50px, 50px, 10%);
+            top: 50%;
+            transform: translateY(-50%);
+            background: url($pathBefore) no-repeat center center / contain;
+        }
+
+        &:after {
+            position: absolute;
+            content: "";
+            @include right(50px, 50px, 10%);
+            top: 50%;
+            transform: translateY(-50%);
+            background: url($pathAfter) no-repeat center center / contain;
+        }
+    }
+}
+
+@mixin btn2() {
+    .btn2 {
+        @include width(324px, 324px, 343px);
+        @include height(70px, 70px, 70px);
+        position: relative;
+        background: #0086CD;
+        border: 1px solid #0086CD;
+        transition: all 0.3s;
+
+        a {
+            @include width(100%);
+            @include height(100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: $bold;
+            @include fs(15px);
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            @include right(10%);
+            top: 50%;
+            transform: translateY(-50%);
+            background: url(../../../assets/images/common/above-arrow-white.svg) no-repeat center center / contain;
+            @include width(10px);
+            @include height(10px);
+        }
+
+        @include pc {
+            &:hover {
+                background: #fff;
+
+                &:before {
+                    background: url(../../../assets/images/common/above-arrow-blue.svg) no-repeat center center / contain;
+                }
+
+                a {
+                    color: #0086CD;
+                }
+            }
+        }
+    }
+}
+
+@mixin btn3 {
+    .btn3 {
+        @include width(324px, 324px, 343px);
+        @include height(70px, 70px, 70px);
+        position: relative;
+        background: #fff;
+        border: 1px solid #fff;
+        transition: all 0.3s;
+
+        a {
+            @include width(100%);
+            @include height(100%);
+            color: #0086CD;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: $bold;
+            @include fs(15px);
+        }
+
+        &:before {
+            position: absolute;
+            content: "";
+            @include right(10%);
+            top: 50%;
+            transform: translateY(-50%);
+            background: url(../../../assets/images/common/above-arrow-blue.svg) no-repeat center center / contain;
+            @include width(10px);
+            @include height(10px);
+        }
+
+        @include pc {
+            &:hover {
+                background: #0086CD;
+
+                &:before {
+                    background: url(../../../assets/images/common/above-arrow-white.svg) no-repeat center center / contain;
+                }
+
+                a {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+@include viewAll();
+@include btn3();
+@include btn2();
